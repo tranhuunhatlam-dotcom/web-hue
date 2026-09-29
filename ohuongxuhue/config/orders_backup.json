@@ -1,0 +1,72 @@
+[
+    {
+        "id": "4",
+        "order_code": "OHX-TEST-1759",
+        "user_id": null,
+        "customer_name": "Lê Hoàng Kim",
+        "customer_phone": "0935123456",
+        "customer_address": "12 Đoàn Thị Điểm, TP. Huế",
+        "customer_note": "",
+        "payment_method": "cod",
+        "total_amount": 270000,
+        "items_json": "[{\"id\":1,\"name\":\"Bánh Bèo Nậm Lọc Cố Đô\",\"price\":\"135.000 ₫\",\"quantity\":2}]",
+        "status": "pending",
+        "created_at": "2026-09-10 08:58:29"
+    },
+    {
+        "id": "3",
+        "order_code": "OHX-98D310",
+        "user_id": 1,
+        "customer_name": "Nguyen Van Hue",
+        "customer_phone": "0905123456",
+        "customer_address": "đà nẵng số 1",
+        "customer_note": "",
+        "payment_method": "cod",
+        "total_amount": 150000,
+        "items_json": "[{\"id\":2,\"name\":\"Mè Xửng Hạt Sen Thượng Hạng\",\"price\":\"40.000 ₫\",\"price_raw\":40000,\"quantity\":3,\"image\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80\"}]",
+        "status": "pending",
+        "created_at": "2026-09-10 06:41:41"
+    },
+    {
+        "id": "2",
+        "order_code": "OHX-BEFF13",
+        "user_id": null,
+        "customer_name": "Trần Thị Mỹ Linh",
+        "customer_phone": "0912345678",
+        "customer_address": "45 Phan Chu Trinh, TP. Huế",
+        "customer_note": "Gọi trước 15 phút khi giao",
+        "payment_method": "cod",
+        "total_amount": 355000,
+        "items_json": "[{\"id\":1,\"name\":\"Bánh Bèo Nậm Lọc Cố Đô\",\"price\":\"135.000 ₫\",\"price_raw\":135000,\"image\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80\",\"category\":\"Bánh Huế Tươi\",\"quantity\":2},{\"id\":3,\"name\":\"Trà Cung Đình Huế Nhất Dạ Đế Vương\",\"price\":\"85.000 ₫\",\"price_raw\":85000,\"image\":\"https:\\\/\\\/images.unsplash.com\\\/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80\",\"category\":\"Trà & Thức Uống\",\"quantity\":1}]",
+        "status": "completed",
+        "created_at": "2026-09-10 08:40:03"
+    },
+    {
+        "id": "1",
+        "order_code": "OHX-790519",
+        "user_id": 1,
+        "customer_name": "Nguyễn Văn Huế",
+        "customer_phone": "0905123456",
+        "customer_address": "123 Lê Lợi, TP Huế",
+        "customer_note": "Giao trong giờ hành chính giúp em",
+        "payment_method": "cod",
+        "total_amount": 350000,
+        "items_json": "[{\"id\":1,\"name\":\"Bánh Bột Lọc Tôm Thịt Cố Đô\",\"price\":\"135.000 ₫\",\"price_raw\":135000,\"image\":\"assets\\\/images\\\/banh-loc.jpg\",\"quantity\":2}]",
+        "status": "completed",
+        "created_at": "2026-09-10 08:35:03"
+    },
+    {
+        "id": 1789022073,
+        "order_code": "OHX-08A278",
+        "user_id": 1,
+        "customer_name": "Nguyễn Văn Huế",
+        "customer_phone": "0905123456",
+        "customer_address": "123 Lê Lợi, TP Huế",
+        "customer_note": "Giao trong giờ hành chính giúp em",
+        "payment_method": "cod",
+        "total_amount": 350000,
+        "items_json": null,
+        "status": "pending",
+        "created_at": "2026-09-10 08:34:33"
+    }
+]

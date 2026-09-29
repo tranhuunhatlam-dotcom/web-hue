@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <title>Giỏ Hàng & Đặt Mua Đặc Sản - O Hương Xứ Huế</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hue-ambient.css?v=3.0.0">
+</head>
+<body>
+    <!-- KHÔNG GIAN HOA VĂN TRỐNG ĐỒNG ĐÔNG SƠN HUẾ XOAY ĐỘNG (ROYAL ROTATING BRONZE DRUM BACKGROUND) -->
+    <div class="hue-trong-dong-bg" id="hueTrongDongBg" aria-hidden="true">
+        <div class="hue-trong-dong-glow"></div>
+        <div class="hue-trong-dong-disc hue-trong-dong-main" title="Hoa văn Trống Đồng Đông Sơn xoay">
+            <img src="images/trong-dong-dong-son.svg" alt="Hoa văn Trống Đồng Đông Sơn Cố Đô" loading="eager">
+        </div>
+    </div>
+
+    <!-- THÔNG TIN HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-brand">
+                <img src="images/logo.jpg" alt="Logo O Hương Xứ Huế">
+                <div class="logo-text">
+                    <h1>O Hương Xứ Huế</h1>
+                    <p>Vị Ngon Cố Đô</p>
+                </div>
+            </a>
+
+            <div class="search-bar">
+                <select>
+                    <option>Tất cả</option>
+                </select>
+                <input type="search" placeholder="Tìm kiếm sản phẩm đặc sản...">
+                <button type="button">Tìm</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="gio-hang.html" class="header-cart-action" title="Giỏ Hàng" style="text-decoration:none; position:relative; display:inline-flex; align-items:center;">
+                    <span style="font-size:22px;">🛒</span>
+                    <span class="cart-count-badge" id="headerCartCount">0</span>
+                </a>
+                <a href="don-hang.html" class="header-order-link" title="Đơn Hàng Đã Đặt" style="text-decoration:none; font-size:13px; font-weight:600; color:#8b5a2b; background:#fbf4ea; padding:6px 12px; border-radius:15px; border:1px solid #d4af37;">
+                    📦 Đơn Hàng
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU NGANG -->
+    <nav class="main-nav">
+        <ul class="nav-container">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="dac-san.html">Đặc Sản</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="lien-he.html">Liên hệ</a></li>
+            <li><a href="cua-hang.html">Cửa hàng</a></li>
+        </ul>
+    </nav>
+
+    <!-- TRANG GIỎ HÀNG CHÍNH -->
+    <div class="cart-page-master">
+        <section class="cart-hero-banner">
+            <div class="cart-hero-content">
+                <nav class="cart-breadcrumb">
+                    <a href="index.html">Trang Chủ</a> &rsaquo; <span>Giỏ Hàng Của Bạn</span>
+                </nav>
+                <h1 class="cart-hero-title">🛒 Giỏ Hàng & Đặt Mua Đặc Sản</h1>
+                <p class="cart-hero-desc">Kiểm tra lại các thức quà Cố Đô bạn đã chọn và tiến hành đặt hàng nhận hàng tận nơi.</p>
+            </div>
+        </section>
+
+        <div class="cart-container" id="cartAppContainer">
+            <!-- Nội dung sẽ được render bằng JavaScript qua LocalStorage -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Về O Hương Xứ Huế</h3>
+                <p>Thương hiệu đặc sản Cố Đô chính gốc, gìn giữ tinh hoa ẩm thực truyền thống Huế qua từng hương vị đậm đà, mộc mạc.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Chính Sách & Hỗ Trợ</h3>
+                <ul>
+                    <li><a href="#">Chính sách giao hàng toàn quốc</a></li>
+                    <li><a href="#">Chính sách đổi trả & hoàn tiền</a></li>
+                    <li><a href="#">Hướng dẫn bảo quản đặc sản</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Liên Hệ Cửa Hàng</h3>
+                <p>📍 123 Đường Lê Lợi, TP. Huế</p>
+                <p>📞 Hotline: 0905.123.456</p>
+                <p>✉️ Email: lienhe@ohuongxuhue.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 O Hương Xứ Huế - Vị Ngon Cố Đô. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script>
+    // Khởi tạo sản phẩm mẫu mặc định nếu giỏ hàng trống lần đầu vào trang để người dùng dễ trải nghiệm
+    function getStoredCart() {
+        var raw = localStorage.getItem('ohx_cart');
+        if (!raw) {
+            var defaultCart = [
+                {
+                    id: 1,
+                    name: "Bánh Bột Lọc Tôm Thịt Cố Đô",
+                    price: "135.000 ₫",
+                    price_raw: 135000,
+                    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80",
+                    category: "Bánh Truyền Thống Huế",
+                    quantity: 2
+                },
+                {
+                    id: 2,
+                    name: "Mè Xửng Hạt Sen Thượng Hạng",
+                    price: "40.000 ₫",
+                    price_raw: 40000,
+                    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=400&q=80",
+                    category: "Kẹo Mè Xửng Cố Đô",
+                    quantity: 1
+                }
+            ];
+            localStorage.setItem('ohx_cart', JSON.stringify(defaultCart));
+            return defaultCart;
+        }
+        try {
+            return JSON.parse(raw) || [];
+        } catch(e) {
+            return [];
+        }
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem('ohx_cart', JSON.stringify(cart));
+        updateCartBadge();
+        renderCartUI();
+    }
+
+    function updateCartBadge() {
+        var cart = [];
+        try { cart = JSON.parse(localStorage.getItem('ohx_cart')) || []; } catch(e){}
+        var total = cart.reduce(function(acc, item) { return acc + (parseInt(item.quantity) || 0); }, 0);
+        var badge = document.getElementById('headerCartCount');
+        if (badge) badge.textContent = total;
+    }
+
+    function formatVND(amount) {
+        return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ₫";
+    }
+
+    function renderCartUI() {
+        var container = document.getElementById('cartAppContainer');
+        var cart = [];
+        try { cart = JSON.parse(localStorage.getItem('ohx_cart')) || []; } catch(e){}
+
+        if (cart.length === 0) {
+            container.innerHTML = `
+                <div class="empty-cart-box">
+                    <div class="empty-cart-icon">🛍️</div>
+                    <h2>Giỏ hàng của bạn đang trống!</h2>
+                    <p>Bạn chưa thêm đặc sản nào vào giỏ hàng. Hãy khám phá những thức bánh, kẹo mè xửng và trà cung đình tuyệt hảo của O Hương Xứ Huế nhé.</p>
+                    <a href="dac-san.html" class="btn-go-shop">
+                        🏺 Khám Phá Đặc Sản Huế Ngay
+                    </a>
+                </div>
+            `;
+            return;
+        }
+
+        var subtotal = 0;
+        var itemsHtml = cart.map(function(item, index) {
+            var itemSubtotal = parseInt(item.price_raw) * parseInt(item.quantity);
+            subtotal += itemSubtotal;
+            return `
+                <div class="cart-item-row">
+                    <div class="item-img">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="item-info">
+                        <span class="item-cat">${item.category}</span>
+                        <h4 class="item-title">${item.name}</h4>
+                        <div class="item-unit-price">${item.price} / phần</div>
+                    </div>
+                    <div class="item-quantity-control">
+                        <button type="button" class="btn-qty-adj" onclick="changeCartItemQty(${index}, -1)">&minus;</button>
+                        <span class="qty-num">${item.quantity}</span>
+                        <button type="button" class="btn-qty-adj" onclick="changeCartItemQty(${index}, 1)">&#43;</button>
+                    </div>
+                    <div class="item-subtotal">${formatVND(itemSubtotal)}</div>
+                    <div class="item-remove">
+                        <button type="button" class="btn-remove-item" onclick="removeCartItem(${index})" title="Xóa món này" style="background:none; border:none; cursor:pointer; font-size:18px;">🗑️</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        var shippingFee = (subtotal >= 300000) ? 0 : 30000;
+        var grandTotal = subtotal + shippingFee;
+
+        var shipNoticeHtml = (subtotal >= 300000) 
+            ? `<span class="free-ship-tag">🎉 Chúc mừng! Đơn hàng của bạn được MIỄN PHÍ VẬN CHUYỂN toàn quốc!</span>`
+            : `<span>🚚 Mua thêm <strong>${formatVND(300000 - subtotal)}</strong> để được <strong>MIỄN PHÍ VẬN CHUYỂN</strong> toàn quốc!</span>`;
+
+        container.innerHTML = `
+            <div class="cart-content-grid">
+                <!-- Cột Trái: Danh sách sản phẩm trong giỏ -->
+                <div class="cart-items-column">
+                    <div class="cart-card-box">
+                        <div class="cart-box-header">
+                            <h3>Danh Sách Món Đã Chọn (${cart.length} loại đặc sản)</h3>
+                            <a href="dac-san.html" class="link-add-more">&#43; Chọn thêm món khác</a>
+                        </div>
+                        <div class="cart-items-list">
+                            ${itemsHtml}
+                        </div>
+                        <div class="cart-shipping-notice">
+                            ${shipNoticeHtml}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột Phải: Tóm tắt & Form thanh toán -->
+                <div class="cart-checkout-column">
+                    <div class="cart-card-box checkout-box">
+                        <h3 class="checkout-title">Thông Tin Đặt Hàng & Giao Nhận</h3>
+                        
+                        <form id="staticCheckoutForm" onsubmit="handlePlaceOrder(event)">
+                            <div class="form-group-item">
+                                <label for="custName">Họ và Tên người nhận: <span class="required">*</span></label>
+                                <input type="text" id="custName" name="customer_name" required placeholder="Ví dụ: Nguyễn Thị Hương">
+                            </div>
+
+                            <div class="form-group-item">
+                                <label for="custPhone">Số Điện Thoại liên hệ: <span class="required">*</span></label>
+                                <input type="tel" id="custPhone" name="customer_phone" required placeholder="Ví dụ: 0905123456" pattern="[0-9]{9,12}">
+                            </div>
+
+                            <div class="form-group-item">
+                                <label for="custAddress">Địa Chỉ Nhận Hàng: <span class="required">*</span></label>
+                                <textarea id="custAddress" name="customer_address" required rows="2" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành..."></textarea>
+                            </div>
+
+                            <div class="form-group-item">
+                                <label for="custNote">Ghi Chú Đơn Hàng (tùy chọn):</label>
+                                <input type="text" id="custNote" name="customer_note" placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi đến...">
+                            </div>
+
+                            <!-- Phương thức thanh toán -->
+                            <div class="payment-method-box">
+                                <label class="payment-heading">Phương Thức Thanh Toán:</label>
+                                <div class="payment-option">
+                                    <input type="radio" id="payCod" name="payment_method" value="cod" checked>
+                                    <label for="payCod">
+                                        <strong>💵 Thanh toán khi nhận hàng (COD)</strong>
+                                        <span>Kiểm tra hàng rồi thanh toán tiền mặt cho bưu tá</span>
+                                    </label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="payQr" name="payment_method" value="vietqr">
+                                    <label for="payQr">
+                                        <strong>📲 Chuyển khoản VietQR / Ngân Hàng</strong>
+                                        <span>Quét mã QR chuyển khoản nhanh 24/7 an toàn</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Bảng tính tổng tiền -->
+                            <div class="order-summary-totals">
+                                <div class="sum-row">
+                                    <span>Tạm tính giỏ hàng:</span>
+                                    <strong id="summarySubtotal">${formatVND(subtotal)}</strong>
+                                </div>
+                                <div class="sum-row">
+                                    <span>Phí vận chuyển:</span>
+                                    <span id="summaryShipping">${shippingFee === 0 ? '<strong style="color:#27ae60;">MIỄN PHÍ</strong>' : formatVND(shippingFee)}</span>
+                                </div>
+                                <div class="sum-divider"></div>
+                                <div class="sum-row total-row">
+                                    <span>Tổng Thanh Toán:</span>
+                                    <span class="grand-total-val" id="summaryGrandTotal">${formatVND(grandTotal)}</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-submit-checkout">
+                                🚀 XÁC NHẬN ĐẶT HÀNG NGAY
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function changeCartItemQty(index, delta) {
+        var cart = JSON.parse(localStorage.getItem('ohx_cart')) || [];
+        if (!cart[index]) return;
+        cart[index].quantity = parseInt(cart[index].quantity) + delta;
+        if (cart[index].quantity <= 0) {
+            cart.splice(index, 1);
+        }
+        saveCart(cart);
+    }
+
+    function removeCartItem(index) {
+        if (!confirm('Bạn có chắc muốn xóa đặc sản này khỏi giỏ?')) return;
+        var cart = JSON.parse(localStorage.getItem('ohx_cart')) || [];
+        cart.splice(index, 1);
+        saveCart(cart);
+    }
+
+    function handlePlaceOrder(e) {
+        e.preventDefault();
+        var cart = JSON.parse(localStorage.getItem('ohx_cart')) || [];
+        if (cart.length === 0) {
+            alert('Giỏ hàng rỗng!');
+            return;
+        }
+
+        var name = document.getElementById('custName').value.trim();
+        var phone = document.getElementById('custPhone').value.trim();
+        var address = document.getElementById('custAddress').value.trim();
+        var note = document.getElementById('custNote').value.trim();
+        var payElem = document.querySelector('input[name="payment_method"]:checked');
+        var payment = payElem ? payElem.value : 'cod';
+
+        var subtotal = cart.reduce(function(acc, item) {
+            return acc + (parseInt(item.price_raw) * parseInt(item.quantity));
+        }, 0);
+        var shippingFee = (subtotal >= 300000) ? 0 : 30000;
+        var totalAmount = subtotal + shippingFee;
+
+        // Sinh mã đơn hàng ngẫu nhiên chuẩn Cố Đô
+        var orderCode = 'OHX-' + Math.floor(100000 + Math.random() * 900000);
+        var newOrder = {
+            id: Date.now(),
+            order_code: orderCode,
+            customer_name: name,
+            customer_phone: phone,
+            customer_address: address,
+            customer_note: note,
+            payment_method: payment,
+            total_amount: totalAmount,
+            items: cart,
+            status: 'pending',
+            created_at: new Date().toLocaleString('vi-VN')
+        };
+
+        // Lưu đơn hàng vào LocalStorage
+        var orders = [];
+        try { orders = JSON.parse(localStorage.getItem('ohx_orders')) || []; } catch(err){}
+        orders.unshift(newOrder);
+        localStorage.setItem('ohx_orders', JSON.stringify(orders));
+
+        // Xóa giỏ hàng
+        localStorage.removeItem('ohx_cart');
+        updateCartBadge();
+
+        // Chuyển sang trang theo dõi đơn hàng
+        window.location.href = 'don-hang.html?order_success=' + orderCode;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        getStoredCart();
+        updateCartBadge();
+        renderCartUI();
+    });
+    </script>
+    <!-- Trải Nghiệm Độc Bản: Không Gian Cố Đô -->
+    <script src="hue-ambient.js?v=3.0.0"></script>
+</body>
+</html>

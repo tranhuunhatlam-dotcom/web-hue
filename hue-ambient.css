@@ -1,0 +1,152 @@
+/* ==========================================================================
+   HOA VĂN TRỐNG ĐỒNG ĐÔNG SƠN HUẾ - KINETIC ROTATING DRUM BACKGROUND
+   Thương hiệu: O Hương Xứ Huế - Vị Ngon Cố Đô
+   ========================================================================== */
+
+/* 1. Khung chứa toàn màn hình cố định phía sau */
+.hue-trong-dong-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1 !important;
+    overflow: hidden;
+    background-color: transparent !important;
+    opacity: 1;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hue-trong-dong-bg.is-hidden {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+/* 2. Ánh sáng hào quang vàng đồng ấm áp ở trung tâm */
+.hue-trong-dong-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1200px;
+    height: 1200px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(184, 134, 11, 0.08) 40%, rgba(122, 30, 46, 0.03) 65%, rgba(0, 0, 0, 0) 80%);
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    animation: glowPulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+}
+
+/* 3. Đĩa Trống Đồng xoay chuyển động mượt mà */
+.hue-trong-dong-disc {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.hue-trong-dong-disc img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.35)) drop-shadow(0 0 25px rgba(184, 134, 11, 0.2));
+}
+
+/* 4. Trống Đồng Trung Tâm: Màu vàng đồng nguyên bản rõ nét, làm mờ chìm dịu nhẹ không che nội dung */
+.hue-trong-dong-main {
+    top: 50%;
+    left: 50%;
+    width: 1300px;
+    height: 1300px;
+    max-width: 130vw;
+    max-height: 130vw;
+    opacity: 0.20;
+    transform: translate(-50%, -50%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0) 85%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0) 85%);
+}
+
+/* Đĩa xoay trực tiếp bằng CSS 20s/vòng */
+.hue-trong-dong-main img {
+    animation: spinTrongDongImg 20s linear infinite !important;
+}
+
+/* Keyframe xoay thuận chiều kim đồng hồ mượt mà 60fps */
+@keyframes spinTrongDongImg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Đảm bảo toàn bộ nội dung trang web nằm trên lớp nền trống đồng xoay */
+.top-announcement-bar,
+.main-header,
+.main-layout,
+.home-master-layout,
+.products-section,
+.bottom-category-wrapper,
+.main-footer,
+.floating-contact-btn,
+.speed-dial-btn,
+.cart-page-master,
+.wc-page-master,
+.content-area,
+.hero-section,
+.product-detail-container,
+.product-detail-main,
+.detail-gallery-col,
+.detail-info-col,
+.product-description-section,
+.product-reviews-section,
+.product-related-section,
+.catalog-page-master,
+.catalog-container,
+.about-page-master,
+.contact-page-master,
+.store-page-master,
+.blog-page-master {
+    position: relative;
+    z-index: 2;
+}
+
+/* ĐẢM BẢO CÁC NÚT CHAT FLOATING (AI, ZALO, FB, HOTLINE) LUÔN NỔI CỐ ĐỊNH TRÊN CÙNG */
+.buttonizer-wrapper {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    z-index: 999998 !important;
+}
+
+.ai-chatbot-window {
+    position: fixed !important;
+    bottom: 95px !important;
+    right: 24px !important;
+    z-index: 999999 !important;
+}
+
+.quick-contact-modal-backdrop {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 1000000 !important;
+}
+
+/* Tối ưu hóa cho màn hình di động */
+@media (max-width: 768px) {
+    .hue-trong-dong-main {
+        width: 700px;
+        height: 700px;
+        opacity: 0.16;
+    }
+}

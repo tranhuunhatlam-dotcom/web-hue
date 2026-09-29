@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặc Sản Xứ Huế Trứ Danh - O Hương Xứ Huế</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hue-ambient.css?v=3.0.0">
+</head>
+<body>
+    <!-- KHÔNG GIAN HOA VĂN TRỐNG ĐỒNG ĐÔNG SƠN HUẾ XOAY ĐỘNG (ROYAL ROTATING BRONZE DRUM BACKGROUND) -->
+    <div class="hue-trong-dong-bg" id="hueTrongDongBg" aria-hidden="true">
+        <div class="hue-trong-dong-glow"></div>
+        <div class="hue-trong-dong-disc hue-trong-dong-main" title="Hoa văn Trống Đồng Đông Sơn xoay">
+            <img src="images/trong-dong-dong-son.svg" alt="Hoa văn Trống Đồng Đông Sơn Cố Đô" loading="eager">
+        </div>
+    </div>
+
+    <!-- Header Trắng Sáng -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-brand">
+                <img src="logo.png" alt="Logo O Hương Xứ Huế">
+                <div class="logo-text">
+                    <h1>O Hương Xứ Huế</h1>
+                    <p>Vị Ngon Cố Đô</p>
+                </div>
+            </a>
+
+            <div class="search-bar">
+                <select>
+                    <option>Tất cả</option>
+                </select>
+                <input type="search" placeholder="Tìm kiếm sản phẩm đặc sản...">
+                <button type="button">&#128269;</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="gio-hang.html" class="header-cart-action" title="Giỏ Hàng" style="text-decoration:none; position:relative; display:inline-flex; align-items:center;">
+                    <span style="font-size:22px;">🛒</span>
+                    <span class="cart-count-badge" id="headerCartCount" style="position:absolute; top:-8px; right:-10px; background:#e74c3c; color:#fff; font-size:11px; font-weight:bold; border-radius:50%; padding:2px 6px; min-width:18px; text-align:center;">0</span>
+                </a>
+                <a href="don-hang.html" class="header-order-link" title="Đơn Hàng Đã Đặt" style="text-decoration:none; font-size:13px; font-weight:600; color:#8b5a2b; background:#fbf4ea; padding:5px 12px; border-radius:15px; border:1px solid #d4af37;">
+                    📦 Đơn Hàng
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Ngang -->
+    <nav class="main-nav">
+        <ul class="nav-container">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="dac-san.html" class="active" style="color: #fcebb6; font-weight: 700;">Đặc Sản</a></li>
+            <li><a href="ban-do.html" style="color: #ffd700; font-weight: 700;">Bản Đồ Cố Đô</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="lien-he.html">Liên hệ</a></li>
+            <li><a href="cua-hang.html">Cửa hàng</a></li>
+        </ul>
+    </nav>
+
+    <div class="catalog-page-master">
+        <!-- Header Banner -->
+        <section class="catalog-hero-banner">
+            <div class="catalog-hero-content">
+                <nav class="catalog-breadcrumb">
+                    <a href="index.html">Trang Chủ</a> &rsaquo; <span>Đặc Sản Xứ Huế</span>
+                </nav>
+                <span class="catalog-hero-tag">🏺 Kho Tàng Hương Vị Cố Đô</span>
+                <h1 class="catalog-hero-title">Đặc Sản Huế Truyền Thống Chính Gốc</h1>
+                <p class="catalog-hero-desc">
+                    Tuyển chọn những tinh hoa ẩm thực trứ danh sông Hương núi Ngự, chế biến thủ công giữ trọn phong vị cổ truyền ngàn năm.
+                </p>
+            </div>
+        </section>
+
+        <div class="catalog-container">
+            <!-- Thanh Công Cụ Bộ Lọc & Tìm Kiếm -->
+            <div class="catalog-toolbar">
+                <div class="filter-categories-pills">
+                    <button type="button" class="filter-pill active" onclick="filterCatalog('all', this)">Tất Cả (24)</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('Bánh', this)">🥟 Bánh Ép Huế</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('Mắm', this)">🦐 Mắm Cố Đô</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('Trà', this)">🍵 Trà Cung Đình &amp; Sen</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('Kẹo', this)">🍬 Kẹo Mè Xửng</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('Tré', this)">🥩 Tré Bò &amp; Heo</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('Sen', this)">🪷 Hạt Sen Huế</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('Nem', this)">🥓 Nem Chua Huế</button>
+                </div>
+
+                <div class="toolbar-controls">
+                    <div class="catalog-search-box">
+                        <input type="text" id="catalogSearchInput" placeholder="Tìm tên đặc sản..." onkeyup="searchCatalog()">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <select id="catalogSortSelect" class="catalog-sort" onchange="sortCatalog()">
+                        <option value="default">Sắp xếp: Mặc định</option>
+                        <option value="price-asc">Giá: Thấp đến Cao</option>
+                        <option value="price-desc">Giá: Cao đến Thấp</option>
+                        <option value="rating">Đánh giá cao nhất</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Lưới Sản Phẩm -->
+            <div id="catalogGrid" class="catalog-grid">
+                <!-- Sẽ render tự động qua JS -->
+            </div>
+
+            <div id="noResults" class="no-results-msg" style="display: none;">
+                <p>🏮 Không tìm thấy đặc sản phù hợp với từ khóa của bạn.</p>
+                <button type="button" class="btn-reset-filter" onclick="resetFilters()">Xem tất cả đặc sản</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP MODAL XEM THÔNG TIN CHI TIẾT SẢN PHẨM TỨC THÌ -->
+    <div id="productQuickModal" class="quick-modal-overlay" onclick="closeProductQuickView(event)">
+        <div class="quick-modal-content" onclick="event.stopPropagation()">
+            <button type="button" class="quick-modal-close" onclick="closeProductQuickView(null)">&times;</button>
+            
+            <div class="quick-modal-body">
+                <div class="quick-modal-img-col">
+                    <img id="modalImg" src="" alt="Sản phẩm">
+                    <span id="modalCategoryBadge" class="modal-badge">Đặc Sản Huế</span>
+                </div>
+
+                <div class="quick-modal-info-col">
+                    <h2 id="modalTitle">Tên Đặc Sản</h2>
+                    <div class="modal-rating">
+                        <span style="color: #f39c12;">★★★★★</span>
+                        <span id="modalRatingText">5.0 (Đánh giá cao)</span>
+                    </div>
+                    <div id="modalPrice" class="modal-price">25.000 ₫</div>
+                    <p id="modalShortDesc" class="modal-short-desc">Mô tả...</p>
+
+                    <div class="modal-specs-list">
+                        <div class="modal-spec-row"><strong>📍 Xuất xứ:</strong> <span id="modalOrigin">Huế</span></div>
+                        <div class="modal-spec-row"><strong>📦 Quy cách:</strong> <span id="modalPackaging">Hộp</span></div>
+                        <div class="modal-spec-row"><strong>⏳ Hạn dùng:</strong> <span id="modalShelfLife">Chuẩn NSX</span></div>
+                        <div class="modal-spec-row"><strong>🌿 Thành phần:</strong> <span id="modalIngredients">Tự nhiên</span></div>
+                        <div class="modal-spec-row"><strong>📊 Tồn kho:</strong> <span id="modalStock" style="font-weight: 700; color: #27ae60;">Còn 45 phần có sẵn</span></div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <a id="modalDetailLink" href="chi-tiet-san-pham.html?id=1" class="btn-modal-action btn-modal-detail">📄 Xem Toàn Bộ Trang Chi Tiết</a>
+                        <button type="button" class="btn-modal-action btn-modal-order" onclick="orderFromModal()">🛒 Đặt Hàng Ngay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <h3>O Hương Xứ Huế — Vị Ngon Cố Đô</h3>
+        <p>&copy; 2026 <strong>O Hương Xứ Huế</strong>. Bảo lưu mọi quyền. Tinh hoa ẩm thực Cố Đô Huế.</p>
+    </footer>
+
+    <script>
+    const productsData = {
+        "1": {
+                "id": 1,
+                "name": "Bánh Ép Khô Huế",
+                "price": "25.000 ₫",
+                "raw_price": 25000,
+                "category": "Bánh Ép Huế",
+                "image": "images/products/p1_banh_ep_kho_hue.jpg",
+                "rating": 5.0,
+                "reviews_count": 128,
+                "origin": "Thuận An, Thừa Thiên Huế",
+                "packaging": "Gói giòn rụm",
+                "shelf_life": "3 tháng",
+                "short_desc": "Bánh ép khô giòn rụm đậm đà hương vị biển Thuận An, thơm béo vị hành lá, tôm chấy và thịt ba chỉ.",
+                "description": "Bánh Ép Khô Huế là món quà vặt tuổi thơ nức tiếng của người dân Cố Đô. Bánh được làm từ tinh bột lọc hảo hạng, ép giòn rụm cùng nhân hành, tôm sấy thơm lừng. Cắn từng miếng giòn tan hòa quyện vị cay the của ớt bột Huế tạo cảm giác khó cưỡng.",
+                "ingredients": "Tinh bột sắn lọc thủ công, tôm khô, thịt mỡ thơm giòn, hành lá, ớt bột Huế, dầu thực vật, muối hầm, tiêu sọ.",
+                "instructions": "Dùng trực tiếp ngay khi mở bao bì. Chấm cùng tương ớt xào hoặc sốt chua ngọt.",
+                "storage": "Bảo quản nơi khô ráo, thoáng mát. Buộc kín miệng túi sau khi mở để giữ độ giòn tan."
+        },
+        "2": {
+                "id": 2,
+                "name": "Bánh Ép Dẻo Huế",
+                "price": "20.000 ₫",
+                "raw_price": 20000,
+                "category": "Bánh Ép Huế",
+                "image": "images/products/p2_banh_ep_deo_hue.jpg",
+                "rating": 4.9,
+                "reviews_count": 95,
+                "origin": "TP. Huế",
+                "packaging": "Phần ăn kèm rau sống đồ chua",
+                "shelf_life": "2 ngày (ngăn mát)",
+                "short_desc": "Bánh ép dẻo nóng hổi nhân trứng cút, pate, thịt heo tẩm vị ăn kèm rau sống và đồ chua giòn ngọt.",
+                "description": "Bánh Ép Dẻo Huế là phiên bản bánh ép truyền thống ăn liền được yêu thích bậc nhất. Chiếc bánh dẻo thơm, nóng hổi ép cùng trứng gà, pate thơm béo và hành hoa, cuốn cùng rau răm, dưa chuột và chấm nước mắm chua ngọt chuẩn vị Cố Đô.",
+                "ingredients": "Bột lọc tươi, trứng gà ta, thịt nạc dăm, pate gia truyền, mỡ hành, ớt rim, đồ chua (cà rốt, đu đủ bào).",
+                "instructions": "Nên làm nóng lại bằng chảo chống dính hoặc nồi chiên không dầu 1-2 phút trước khi ăn. Cuốn cùng rau sống và đồ chua.",
+                "storage": "Dùng trong ngày hoặc bảo quản ngăn mát tủ lạnh trong 48 giờ."
+        },
+        "3": {
+                "id": 3,
+                "name": "Bánh Ép Thuận An",
+                "price": "15.000 ₫",
+                "raw_price": 15000,
+                "category": "Bánh Ép Huế",
+                "image": "images/products/p3_banh_ep_thuan_an.jpg",
+                "rating": 4.8,
+                "reviews_count": 110,
+                "origin": "Thị trấn Thuận An, Phú Vang, Huế",
+                "packaging": "Gói ăn liền tiện lợi",
+                "shelf_life": "3 tháng",
+                "short_desc": "Đặc sản xứ biển Thuận An chính gốc với vị giòn xốp rôm rốp và hương thơm đặc trưng của mỡ hành.",
+                "description": "Thuận An là cái nôi khai sinh ra món bánh ép nức danh. Chiếc Bánh Ép Thuận An được đóng gói tiện lợi, giữ nguyên độ giòn xốp và mùi thơm quyến rũ của tép biển và hành phi thơm phức.",
+                "ingredients": "Bột lọc tuyển chọn, tép đầm phá Tam Giang, mỡ heo, hành lá tươi, tỏi ớt, gia vị Cố Đô.",
+                "instructions": "Dùng ăn liền như snack hoặc nhâm nhi cùng nước ngọt, bia mát lạnh.",
+                "storage": "Để nơi thoáng mát, tránh ánh nắng trực tiếp."
+        },
+        "4": {
+                "id": 4,
+                "name": "Mắm Tôm Chua Đu Đủ",
+                "price": "50.000 ₫",
+                "raw_price": 50000,
+                "category": "Mắm Huế",
+                "image": "images/products/p4_mam_tom_chua_du_du.jpg",
+                "rating": 5.0,
+                "reviews_count": 184,
+                "origin": "Làng nghề Cầu Hai, Phú Lộc, Huế",
+                "packaging": "Hũ 500g niêm phong kín",
+                "shelf_life": "6 tháng",
+                "short_desc": "Tôm đất đầm phá lên men tự nhiên giòn ngọt kết hợp đu đủ thái sợi dai giòn sần sật và riềng tỏi cay nồng.",
+                "description": "Mắm Tôm Chua Đu Đủ là sự giao thoa hài hòa giữa vị chua cay mặn ngọt. Tôm đất còn nguyên con đỏ au óng ả, quyện đều cùng sợi đu đủ xanh ngâm giòn rụm, riềng non thơm phức và ớt chỉ thiên cay xé lưỡi.",
+                "ingredients": "Tôm đất tươi Tam Giang, đu đủ xanh tuyển chọn, riềng củ non, tỏi Lý Sơn, ớt sừng, rượu nếp, đường phèn, nước mắm nhĩ.",
+                "instructions": "Dùng ăn kèm thịt ba chỉ luộc, bún tươi, bánh tráng cuốn rau sống, dưa leo, vả chát.",
+                "storage": "Bảo quản nơi khô mát hoặc ngăn mát tủ lạnh sau khi mở nắp để giữ độ giòn của tôm và đu đủ."
+        },
+        "5": {
+                "id": 5,
+                "name": "Trà Cung Đình Huế",
+                "price": "90.000 ₫",
+                "raw_price": 90000,
+                "category": "Trà Huế",
+                "image": "images/products/p5_tra_cung_dinh_hue.jpg",
+                "rating": 5.0,
+                "reviews_count": 245,
+                "origin": "TP. Huế, Thừa Thiên Huế",
+                "packaging": "Gói 500g thảo mộc thượng hạng",
+                "shelf_life": "12 tháng",
+                "short_desc": "Thức uống thảo mộc hoàng cung 16 vị bồi bổ long thể, thanh lọc cơ thể, ngủ ngon và điều hòa huyết áp.",
+                "description": "Trà Cung Đình Huế được bào chế theo phương thức cổ truyền dành riêng cho triều đình nhà Nguyễn. 16 vị thảo mộc thiên nhiên được sao tẩm hạ thổ công phu tạo nên tách trà màu vàng hổ phách, vị ngọt thanh tự nhiên và hương hoa thoang thoảng quý phái.",
+                "ingredients": "Atiso, cúc hoa, cỏ ngọt, hoài sơn, đảng sâm, đại táo, hồng táo, hồi hoa, cam thảo bắc, hoa lài, hoa hòe, thảo quyết minh, khổ qua, kỷ tử, tim sen.",
+                "instructions": "Cho 15-20g trà vào ấm, châm 300ml nước sôi 95°C, ủ trà trong 5 phút là có thể thưởng thức. Uống nóng hoặc ướp lạnh đều ngon.",
+                "storage": "Đóng kín miệng túi sau mỗi lần lấy trà, để nơi khô ráo, tránh ẩm ướt."
+        },
+        "6": {
+                "id": 6,
+                "name": "Trà Sen Huế",
+                "price": "250.000 ₫",
+                "raw_price": 250000,
+                "category": "Trà Huế",
+                "image": "images/products/p6_tra_sen_hue.jpg",
+                "rating": 5.0,
+                "reviews_count": 168,
+                "origin": "Hồ Tịnh Tâm, TP. Huế",
+                "packaging": "Hộp 500g cao cấp",
+                "shelf_life": "12 tháng",
+                "short_desc": "Đỉnh cao nghệ thuật trà Việt, ướp từ sen bách diệp hồ Tịnh Tâm với trà nõn tôm Tân Cương thượng hạng.",
+                "description": "Trà Sen Huế là báu vật ẩm thực của Cố Đô. Những búp trà mạn thượng hạng được ủ công phu qua nhiều lần gạo sen bách diệp hái lúc sớm mai khi sương đọng trên cánh sen. Tách trà sen mang hương thơm thanh khiết của đất trời Cố Đô và hậu vị ngọt sâu lắng.",
+                "ingredients": "Búp trà nõn tôm hảo hạng, gạo hoa sen bách diệp hồ Tịnh Tâm tự nhiên 100%.",
+                "instructions": "Dùng nước sôi 85-90°C để pha, tráng ấm chén bằng nước sôi. Hãm trà trong 2-3 phút, rót ra chén tống rồi chia đều thưởng thức.",
+                "storage": "Bảo quản trong hộp kín hoặc ngăn mát tủ lạnh để giữ trọn vẹn hương sen tinh tế."
+        },
+        "7": {
+                "id": 7,
+                "name": "Mắm Ruốc",
+                "price": "55.000 ₫",
+                "raw_price": 55000,
+                "category": "Mắm Huế",
+                "image": "images/products/p7_mam_ruoc.jpg",
+                "rating": 4.9,
+                "reviews_count": 205,
+                "origin": "Thuận An, Huế",
+                "packaging": "Hũ 400g truyền thống",
+                "shelf_life": "12 tháng",
+                "short_desc": "Mắm ruốc cốt truyền thống thơm nồng nàn, bí quyết linh hồn cho món Bún Bò Huế và thịt kho ruốc sả.",
+                "description": "Mắm Ruốc Huế là gia vị không thể thiếu làm nên danh tiếng của ẩm thực miền Trung. Con khuyết biển tươi rói được làm sạch, quết nhuyễn và phơi sương nắng tự nhiên theo bí quyết cổ truyền, tạo nên mùi thơm đượm nồng và vị ngọt đằm thắm.",
+                "ingredients": "Con moi biển (khuyết), muối biển tinh khiết hạt to hầm sạch.",
+                "instructions": "Dùng nấu nước dùng bún bò Huế, xào thịt ba chỉ ruốc sả ớt cay, hoặc nêm vào các món canh rau tập tàng.",
+                "storage": "Đậy kín nắp sau khi sử dụng, để nơi thoáng khí khô ráo."
+        },
+        "8": {
+                "id": 8,
+                "name": "Mắm Nêm",
+                "price": "50.000 ₫",
+                "raw_price": 50000,
+                "category": "Mắm Huế",
+                "image": "images/products/p8_mam_nem.jpg",
+                "rating": 4.8,
+                "reviews_count": 142,
+                "origin": "Phú Lộc, Huế",
+                "packaging": "Chai 500ml nguyên chất",
+                "shelf_life": "9 tháng",
+                "short_desc": "Mắm nêm nguyên chất từ cá cơm than đầm phá Cố Đô, vị đậm đà thơm ngát khi pha cùng dứa và tỏi ớt.",
+                "description": "Mắm nêm Huế được ủ từ cá cơm than tươi nguyên con đượm muối hạt tinh. Nước mắm nêm sánh đặc, thơm ngậy, chỉ cần pha thêm chút thơm (dứa) băm nhuyễn, tỏi ớt và nước cốt chanh là trở thành chén nước chấm mê mẩn cho món bánh ướt thịt heo luộc.",
+                "ingredients": "Cá cơm than biển Cố Đô, muối hầm, thính gạo rang thơm.",
+                "instructions": "Lắc đều trước khi dùng. Pha thêm đường, tỏi ớt băm nhuyễn, dứa băm và chanh tươi tùy khẩu vị.",
+                "storage": "Để nơi khô ráo, tránh ánh nắng trực tiếp."
+        },
+        "9": {
+                "id": 9,
+                "name": "Mắm Cá Rò",
+                "price": "55.000 ₫",
+                "raw_price": 55000,
+                "category": "Mắm Huế",
+                "image": "images/products/p9_mam_ca_ro.jpg",
+                "rating": 4.9,
+                "reviews_count": 96,
+                "origin": "Cửa biển Thuận An, Huế",
+                "packaging": "Hũ 400g đặc biệt",
+                "shelf_life": "6 tháng",
+                "short_desc": "Cá rò biển non xương mềm rụm ủ men cùng muối ớt, ăn kèm thịt ba chỉ và vả thái mỏng ngon nức tiếng.",
+                "description": "Cá rò là loài cá nhỏ xương mềm như sụn sống ở vùng nước lợ đầm phá Tam Giang. Mắm cá rò lên men đỏ au, thịt cá bùi ngọt, xương tan mềm trong miệng, chấm cùng lát khế chua hay lát vả Huế thì hao cơm vô cùng.",
+                "ingredients": "Cá rò biển tươi non, muối biển hầm, ớt bột Huế, tỏi tép, riềng củ.",
+                "instructions": "Trộn thêm chút đường, tỏi ớt tươi giã nhuyễn. Dùng ăn với cơm nóng, bún hoặc cuốn thịt luộc.",
+                "storage": "Bảo quản nơi mát mẻ, đậy kín miệng hũ sau khi lấy mắm."
+        },
+        "10": {
+                "id": 10,
+                "name": "Mắm Sò Lăng Cô",
+                "price": "85.000 ₫",
+                "raw_price": 85000,
+                "category": "Mắm Huế",
+                "image": "images/products/p10_mam_so_lang_co.jpg",
+                "rating": 5.0,
+                "reviews_count": 156,
+                "origin": "Vịnh Lăng Cô, Phú Lộc, Huế",
+                "packaging": "Hũ 500g cao cấp",
+                "shelf_life": "6 tháng",
+                "short_desc": "Đặc sản trứ danh xứ Lăng Cô, thịt sò huyết bùi béo dai giòn thấm đẫm riềng ớt đỏ tươi cay nồng.",
+                "description": "Mắm Sò Lăng Cô là một trong những loại mắm đắt giá và cầu kỳ nhất xứ Huế. Sò lông, sò huyết tươi được cào từ đầm Lập An, tách vỏ lấy ruột béo múp, làm sạch cát rồi ủ cùng muối hột, riềng đỏ và ớt hiểm trong nhiều tháng ròng.",
+                "ingredients": "Thịt sò huyết tươi vịnh Lăng Cô, muối hạt tinh khiết, ớt bột, riềng củ giã nhuyễn, rượu trắng.",
+                "instructions": "Mở nắp, giã thêm chút tỏi ớt tươi và đường, vắt nhẹ chút chanh, chấm kèm thịt heo cuốn bánh tráng rau rừng.",
+                "storage": "Để ngăn mát tủ lạnh để giữ được độ tươi giòn và màu đỏ tươi tự nhiên của mắm."
+        },
+        "11": {
+                "id": 11,
+                "name": "Kẹo Đậu Phộng",
+                "price": "25.000 ₫",
+                "raw_price": 25000,
+                "category": "Kẹo Huế",
+                "image": "images/products/p11_keo_dau_phong.jpg",
+                "rating": 4.8,
+                "reviews_count": 84,
+                "origin": "Làng nghề Nam Phổ, Huế",
+                "packaging": "Gói 250g",
+                "shelf_life": "6 tháng",
+                "short_desc": "Kẹo đậu phộng giòn xốp thơm lừng mạch nha nếp, đậu phộng rang vàng giòn bùi ngậy.",
+                "description": "Kẹo đậu phộng Huế được làm từ những hạt đậu phụng ta tròn mẩy, rang vàng đều trên than hồng rồi quyện đều cùng mạch nha nếp và mè rang. Miếng kẹo cắn giòn rôm rốp, ngọt thanh vừa phải, thích hợp làm thức quà trà chiều tao nhã.",
+                "ingredients": "Đậu phộng ta rang giòn, mạch nha nếp thơm, mè vàng rang, đường cát trắng, vani.",
+                "instructions": "Thưởng thức trực tiếp sau khi mở gói, nhâm nhi cùng trà xanh hoặc trà sen ấm.",
+                "storage": "Để nơi khô ráo, buộc kín miệng gói tránh không khí lọt vào."
+        },
+        "12": {
+                "id": 12,
+                "name": "Kẹo Gừng",
+                "price": "60.000 ₫",
+                "raw_price": 60000,
+                "category": "Kẹo Huế",
+                "image": "images/products/p12_keo_gung.jpg",
+                "rating": 4.9,
+                "reviews_count": 112,
+                "origin": "Kim Long, TP. Huế",
+                "packaging": "Gói 500g",
+                "shelf_life": "6 tháng",
+                "short_desc": "Kẹo gừng dẻo thơm ấm nồng, vị ngọt dịu xoa dịu cổ họng và làm ấm cơ thể trong những ngày se lạnh.",
+                "description": "Kẹo gừng Huế nổi tiếng với vị cay ấm nồng nàn của củ gừng sẻ bản địa kết hợp với độ dẻo quánh của đường mạch nha. Đây vừa là món ăn chơi thú vị vừa là bài thuốc dân gian tuyệt vời giúp giữ ấm cổ họng và kích thích tiêu hóa.",
+                "ingredients": "Gừng sẻ tươi Huế, mạch nha nếp, đường phèn tinh khiết, mè rang, bột nếp rang.",
+                "instructions": "Ăn trực tiếp, rất thích hợp khi uống cùng nước ấm hoặc trà nóng vào buổi sáng.",
+                "storage": "Bảo quản nơi thoáng mát, khô ráo."
+        },
+        "13": {
+                "id": 13,
+                "name": "Kẹo Mè Xửng",
+                "price": "22.000 ₫",
+                "raw_price": 22000,
+                "category": "Kẹo Huế",
+                "image": "images/products/p13_keo_me_xung.jpg",
+                "rating": 5.0,
+                "reviews_count": 320,
+                "origin": "Đường Huỳnh Thúc Kháng, TP. Huế",
+                "packaging": "Gói 250g",
+                "shelf_life": "6 tháng",
+                "short_desc": "Biểu tượng quà quê Cố Đô, từng miếng mè xửng dẻo quánh thơm lừng mè rang và đậu phộng bùi béo.",
+                "description": "Mè Xửng là món quà truyền thống trường tồn cùng thời gian của Cố Đô Huế. Được nấu từ mạch nha dẻo quánh, phủ kín bởi lớp mè trắng rang vàng ruộm điểm xuyết đậu phộng bùi béo, tạo nên hương vị mộc mạc mà quyến luyến khó phai.",
+                "ingredients": "Mạch nha nếp, mè rang vàng, đậu phộng hảo hạng, đường mía, dầu mè tinh khiết.",
+                "instructions": "Thưởng thức trực tiếp, ngon nhất khi nhâm nhi cùng ấm trà cung đình nóng hổi.",
+                "storage": "Bảo quản ở nhiệt độ phòng nơi râm mát, tránh tiếp xúc nhiệt độ cao."
+        },
+        "14": {
+                "id": 14,
+                "name": "Tré Bò",
+                "price": "110.000 ₫",
+                "raw_price": 110000,
+                "category": "Tré Huế",
+                "image": "images/products/p14_tre_bo.jpg",
+                "rating": 5.0,
+                "reviews_count": 175,
+                "origin": "Đường Đào Duy Từ, TP. Huế",
+                "packaging": "10 xâu truyền thống",
+                "shelf_life": "7 ngày (mát)",
+                "short_desc": "Đặc sản tré bò hoàng cung gói rơm bọc lá chuối, thịt bò bắp giòn ngọt dậy thơm mùi mè rang và riềng tỏi.",
+                "description": "Tré Bò là món ăn cung đình cầu kỳ bậc nhất của ẩm thực xứ Huế. Thịt bắp bò tươi sạch được luộc vừa chín tới, thái sợi mỏng như tơ rồi trộn đều với thính gạo rang, riềng non xắt chỉ, mè rang vàng, tỏi ta và tiêu sọ, ủ lên men tự nhiên tạo vị chua thanh ngọt đượm.",
+                "ingredients": "Bắp bò tươi, da bò luộc giòn, riềng non thái chỉ, tỏi ta, thính gạo nếp, mè rang, ớt chỉ thiên, lá ổi, lá chuối.",
+                "instructions": "Mở lá chuối, dùng đũa đánh tơi từng sợi tré, vắt thêm chút chanh tươi, cuốn cùng bánh tráng, rau sống và tỏi tép.",
+                "storage": "Để nơi thoáng mát 2-3 ngày, sau đó bảo quản ngăn mát tủ lạnh dùng trong 10 ngày."
+        },
+        "15": {
+                "id": 15,
+                "name": "Tré Heo",
+                "price": "90.000 ₫",
+                "raw_price": 90000,
+                "category": "Tré Huế",
+                "image": "images/products/p15_tre_heo.jpg",
+                "rating": 4.9,
+                "reviews_count": 134,
+                "origin": "Đường Đào Duy Từ, TP. Huế",
+                "packaging": "10 xâu truyền thống",
+                "shelf_life": "7 ngày (mát)",
+                "short_desc": "Tai heo, mũi heo giòn sần sật lên men tự nhiên thơm lừng riềng sả ớt, món nhậu khoái khẩu Cố Đô.",
+                "description": "Tré Heo là thức quà đãi khách trân quý của người miền Trung. Tai heo giòn sần sật kết hợp thịt nạc heo tươi ngon và gia vị gia truyền, bọc trong lá ổi tươi và lá chuối bánh tẻ xanh ngắt.",
+                "ingredients": "Tai heo, mũi heo, thịt nạc heo tươi, riềng non, tỏi Lý Sơn, mè rang, thính gạo thơm, gia vị bí truyền.",
+                "instructions": "Đánh tơi tré ra đĩa, ăn kèm tỏi ngâm chua ngọt, ớt trái và tương ớt Cố Đô.",
+                "storage": "Bảo quản ngăn mát tủ lạnh để giữ độ giòn sần sật của tai heo."
+        },
+        "16": {
+                "id": 16,
+                "name": "Hạt Sen Khô",
+                "price": "250.000 ₫",
+                "raw_price": 250000,
+                "category": "Hạt Sen Huế",
+                "image": "images/products/p16_hat_sen_kho.jpg",
+                "rating": 5.0,
+                "reviews_count": 220,
+                "origin": "Hồ Tịnh Tâm, TP. Huế",
+                "packaging": "Túi 1 kg hút chân không",
+                "shelf_life": "12 tháng",
+                "short_desc": "Hạt sen Tịnh Tâm chính gốc phơi sấy sạch sẽ, hạt tròn đều bùi béo nấu nhanh mềm không sượng.",
+                "description": "Hạt Sen Khô Huế từ lâu đã nổi tiếng khắp cả nước nhờ thổ nhưỡng hồ Tịnh Tâm giàu phù sa bồi đắp. Hạt sen tròn đều, màu trắng ngà tự nhiên, khi hầm nhanh bở tơi mà không nát, vị ngọt bùi béo ngậy đặc trưng không nơi nào sánh bằng.",
+                "ingredients": "100% hạt sen khô hồ Tịnh Tâm xâu chuỗi thông tâm sạch sẽ.",
+                "instructions": "Không cần ngâm nước lạnh, cho thẳng hạt sen vào nước đang sôi hầm 15-20 phút là hạt sen chín mềm bùi ngậy. Dùng nấu chè, hầm gà hoặc nấu cháo dinh dưỡng.",
+                "storage": "Đóng kín túi, bảo quản nơi khô ráo thoáng gió, tránh ẩm mốc."
+        },
+        "17": {
+                "id": 17,
+                "name": "Hạt Sen Tươi",
+                "price": "420.000 ₫",
+                "raw_price": 420000,
+                "category": "Hạt Sen Huế",
+                "image": "images/products/p17_hat_sen_tuoi.jpg",
+                "rating": 5.0,
+                "reviews_count": 195,
+                "origin": "Hồ Tịnh Tâm, TP. Huế",
+                "packaging": "Túi 1 kg tươi bóc vỏ",
+                "shelf_life": "1 tháng (cấp đông)",
+                "short_desc": "Hạt sen tươi bóc vỏ tách tâm trong ngày, giữ nguyên vẹn vị ngọt thanh mát mộc mạc của sen Cố Đô.",
+                "description": "Hạt Sen Tươi được thu hái từ sáng sớm tinh sương trên mặt hồ Tịnh Tâm thơ mộng. Hạt sen bóc vỏ lụa và rút tâm sen hoàn toàn thủ công, giữ trọn vẹn từng giọt sữa ngọt mát và hương sen dịu lành nguyên bản.",
+                "ingredients": "100% hạt sen tươi nguyên chất đã bóc vỏ lụa và tách tâm sen.",
+                "instructions": "Nấu chè sen long nhãn, chè hạt sen đường phèn, hoặc hấp chín trộn xôi hạt sen dẻo thơm.",
+                "storage": "Bảo quản ngăn mát từ 3-5 ngày hoặc cấp đông ngăn đá dùng trong 3 tháng."
+        },
+        "18": {
+                "id": 18,
+                "name": "Hạt Sen Sấy",
+                "price": "95.000 ₫",
+                "raw_price": 95000,
+                "category": "Hạt Sen Huế",
+                "image": "images/products/p18_hat_sen_say.jpg",
+                "rating": 4.9,
+                "reviews_count": 140,
+                "origin": "TP. Huế, Thừa Thiên Huế",
+                "packaging": "Hũ 250g giòn rụm",
+                "shelf_life": "9 tháng",
+                "short_desc": "Hạt sen sấy giòn tan công nghệ sấy chân không hiện đại, thơm bùi béo ngậy không ngấy dầu.",
+                "description": "Hạt sen sấy giòn O Hương Xứ Huế áp dụng công nghệ sấy chân không tiên tiến, giữ nguyên hình dáng tròn đều và hàm lượng dưỡng chất quý giá của hạt sen Cố Đô. Từng hạt sen giòn rụm tan ngay trong khoang miệng, vị bùi béo tự nhiên kích thích vị giác.",
+                "ingredients": "Hạt sen Huế tuyển chọn (98%), dầu thực vật tinh luyện, đường tinh luyện, muối hầm.",
+                "instructions": "Dùng ăn liền trực tiếp như snack cao cấp bổ dưỡng.",
+                "storage": "Đậy kín nắp sau khi dùng, để nơi khô mát."
+        },
+        "19": {
+                "id": 19,
+                "name": "Mứt Hạt Sen",
+                "price": "85.000 ₫",
+                "raw_price": 85000,
+                "category": "Hạt Sen Huế",
+                "image": "images/products/p19_mut_hat_sen.jpg",
+                "rating": 4.8,
+                "reviews_count": 98,
+                "origin": "Kim Long, TP. Huế",
+                "packaging": "Hộp 300g quà biếu",
+                "shelf_life": "6 tháng",
+                "short_desc": "Thức quà Tết hoàng cung tao nhã, hạt sen bọc lớp đường phấn trắng tinh khôi ngọt thanh bùi ngậy.",
+                "description": "Mứt Hạt Sen Huế là nét đẹp văn hóa ẩm thực tao nhã trong ngày Tết Cố Đô. Từng viên mứt tròn trịa, bên ngoài phủ lớp đường trắng mịn màng như sương mai, bên trong bở bùi thơm ngát hương vani và hạt sen dịu dàng.",
+                "ingredients": "Hạt sen Tịnh Tâm tươi sạch, đường cát trắng tinh khiết, hương vani tự nhiên.",
+                "instructions": "Thưởng thức cùng trà mạn hoặc trà sen nóng hổi trong những dịp chuyện trò sum họp gia đình.",
+                "storage": "Đậy kín hộp, bảo quản nơi khô ráo, tránh kiến và độ ẩm."
+        },
+        "20": {
+                "id": 20,
+                "name": "Nem Chua Huế",
+                "price": "55.000 ₫",
+                "raw_price": 55000,
+                "category": "Nem Chua Huế",
+                "image": "images/products/p20_nem_chua_hue.jpg",
+                "rating": 5.0,
+                "reviews_count": 265,
+                "origin": "Đông Ba, TP. Huế",
+                "packaging": "Chùm 10 trĩu bọc lá chuối",
+                "shelf_life": "7 ngày (mát)",
+                "short_desc": "Nem chua gói lá chuối truyền thống, màu hồng ngọc bắt mắt với vị chua thanh giòn sần sật kèm tỏi ớt.",
+                "description": "Nem Chua Huế mang hương vị đặc trưng không lẫn vào đâu được: không chua gắt như nem miền Bắc, không ngọt đậm như nem miền Nam mà hài hòa vị thanh dịu, da heo giòn sần sật điểm xuyết tép tỏi trắng nõn và lát ớt chỉ thiên đỏ au nồng nàn.",
+                "ingredients": "Thịt nạc đùi heo nóng mới mổ, bì heo thái sợi mỏng giòn, tỏi ta, ớt tiêu, lá ổi, thính gạo gia truyền.",
+                "instructions": "Bóc lá chuối ăn trực tiếp hoặc nướng sơ trên bếp than hồng dậy mùi thơm ngào ngạt.",
+                "storage": "Bảo quản nhiệt độ thường 2 ngày để nem chín, sau đó cho vào ngăn mát tủ lạnh."
+        },
+        "21": {
+                "id": 21,
+                "name": "Nem Thính",
+                "price": "45.000 ₫",
+                "raw_price": 45000,
+                "category": "Nem Chua Huế",
+                "image": "images/products/p21_nem_thinh.jpg",
+                "rating": 4.9,
+                "reviews_count": 118,
+                "origin": "Phú Hội, TP. Huế",
+                "packaging": "Gói 300g đóng hộp",
+                "shelf_life": "5 ngày",
+                "short_desc": "Tai mũi heo trộn thính gạo rang vàng óng thơm nức mũi, cuốn bánh tráng rau sống chấm mắm nêm đậm đà.",
+                "description": "Nem Thính là món ăn dân dã khoái khẩu của người dân Cố Đô. Tai mũi heo được luộc chín giòn sần sật, thái mỏng tang rồi bóp cùng thính gạo nếp rang vàng cánh gián thơm lừng ngào ngạt, thêm chút lá chanh thái chỉ và ớt lát.",
+                "ingredients": "Tai heo, mũi heo luộc giòn, thính nếp rang thủ công, lá chanh non, tỏi ớt, tiêu sọ, nước mắm ngon.",
+                "instructions": "Cuốn cùng lá sung non, rau đinh lăng, bánh tráng và chấm kèm tương ớt hoặc nước mắm tỏi ớt chua ngọt.",
+                "storage": "Nên dùng trong 48 giờ để giữ trọn vẹn mùi thơm ngát của thính gạo."
+        },
+        "22": {
+                "id": 22,
+                "name": "Nem Thịt",
+                "price": "60.000 ₫",
+                "raw_price": 60000,
+                "category": "Nem Chua Huế",
+                "image": "images/products/p22_nem_thit.jpg",
+                "rating": 4.9,
+                "reviews_count": 142,
+                "origin": "Đường Đào Duy Từ, TP. Huế",
+                "packaging": "Chùm 10 trĩu",
+                "shelf_life": "7 ngày",
+                "short_desc": "Nem thịt heo nạc nguyên chất đượm vị tiêu đen, kết cấu săn chắc ngọt thịt chuẩn vị tiệc mừng Cố Đô.",
+                "description": "Nem Thịt được giã tay nhuyễn mịn từ thịt nạc mông heo tươi nóng hổi, tẩm ướp gia vị đậm đà và hạt tiêu sọ cay nồng. Chiếc nem tròn trịa, chắc nịch, khi ăn cảm nhận rõ vị ngọt tự nhiên của thịt heo tươi quyện cùng hương thơm lá chuối.",
+                "ingredients": "Thịt heo nạc đùi (95%), bì heo sạch, tỏi tép, tiêu hạt Phú Quốc, muối đường gia truyền.",
+                "instructions": "Ăn liền kèm tỏi sống, hoặc thái lát mỏng bày lên đĩa khai vị ngày giỗ chạp, lễ tiệc.",
+                "storage": "Để nơi thoáng mát hoặc bảo quản ngăn mát tủ lạnh."
+        },
+        "23": {
+                "id": 23,
+                "name": "Nem Tré",
+                "price": "75.000 ₫",
+                "raw_price": 75000,
+                "category": "Nem Chua Huế",
+                "image": "images/products/p23_nem_tre.jpg",
+                "rating": 4.8,
+                "reviews_count": 88,
+                "origin": "Đông Ba, TP. Huế",
+                "packaging": "Chùm 10 trĩu",
+                "shelf_life": "7 ngày",
+                "short_desc": "Sự kết hợp độc đáo giữa vị chua ngọt của nem và vị giòn cay nồng của tré Cố Đô truyền thống.",
+                "description": "Nem Tré là sáng tạo ẩm thực độc đáo giao hòa giữa hai món đặc sản trứ danh xứ Huế. Sự kết hợp giữa thịt nem chua mịn màng và tai heo thái sợi trộn riềng tỏi mè rang mang đến trải nghiệm hương vị đa tầng hấp dẫn khó quên.",
+                "ingredients": "Thịt heo nạc, tai heo thái sợi, riềng non, tỏi, mè rang, ớt tươi, lá ổi, lá chuối bọc ngoài.",
+                "instructions": "Bóc lớp lá chuối, dùng ăn trực tiếp kèm tỏi ngâm chua ngọt hoặc nhâm nhi cùng chén rượu sen nồng ấm.",
+                "storage": "Bảo quản ngăn mát tủ lạnh sau khi nem đạt độ chua vừa miệng."
+        },
+        "24": {
+                "id": 24,
+                "name": "Nem Bò",
+                "price": "85.000 ₫",
+                "raw_price": 85000,
+                "category": "Nem Chua Huế",
+                "image": "images/products/p24_nem_bo.jpg",
+                "rating": 5.0,
+                "reviews_count": 164,
+                "origin": "Đường Gia Hội, TP. Huế",
+                "packaging": "Chùm 10 trĩu",
+                "shelf_life": "7 ngày",
+                "short_desc": "Nem bò nguyên chất màu đỏ sẫm óng ả, thịt bò săn chắc đậm đà vị tiêu sọ thơm lừng cay ấm.",
+                "description": "Nem Bò Cố Đô được chế biến từ thịt bò tươi loại một tuyển chọn kỹ lưỡng. Từng chiếc nem có màu đỏ mận đặc trưng, thớ thịt săn chắc, thơm lừng vị hạt tiêu sọ và tỏi tép cay ấm, là món quà biếu sang trọng và ý nghĩa.",
+                "ingredients": "Thịt nạc bò tươi nguyên chất, bì heo sợi mỏng giòn, tỏi Lý Sơn, tiêu sọ nguyên hạt, ớt sừng, gia vị bí truyền.",
+                "instructions": "Thưởng thức trực tiếp hoặc cắt lát vuông bày đĩa nhậu khai vị cùng bạn bè.",
+                "storage": "Bảo quản nơi thoáng mát 2 ngày rồi chuyển sang ngăn mát tủ lạnh."
+        }
+};
+
+
+    function renderCatalog() {
+        const grid = document.getElementById('catalogGrid');
+        let html = '';
+        for (let id in productsData) {
+            let p = productsData[id];
+            html += `
+                <div class="catalog-card" data-id="${p.id}" data-name="${p.name}" data-category="${p.category}" data-price="${p.raw_price}" data-rating="${p.rating}" onclick="openProductQuickView(${p.id})">
+                    <div class="catalog-card-img">
+                        <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async">
+                        <span class="card-badge">${p.category}</span>
+                        <div class="card-hover-overlay"><span>🔍 Nhấp để xem thông tin</span></div>
+                    </div>
+                    <div class="catalog-card-info">
+                        <div class="card-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rate-val">${p.rating}</span>
+                            <span class="reviews-count">(${p.reviews_count})</span>
+                        </div>
+                        <div class="card-stock-tag-line">
+                            <span class="catalog-stock-tag tag-good">📦 Còn: ${p.stock || 45} phần</span>
+                        </div>
+                        <h3 class="card-title">${p.name}</h3>
+                        <p class="card-short-desc">${p.short_desc}</p>
+                        <div class="card-footer-row">
+                            <div class="card-price">${p.price}</div>
+                            <div class="card-btns">
+                                <button type="button" class="btn-card-buy" onclick="event.stopPropagation(); buyDirect(${p.id})" style="background:#27ae60; color:#fff; padding:6px 11px; font-size:11px; border:none; border-radius:15px; font-weight:600; cursor:pointer;">🛒 Mua</button>
+                                <button type="button" class="btn-card-quick" onclick="event.stopPropagation(); openProductQuickView(${p.id})">Xem Nhanh</button>
+                                <a href="chi-tiet-san-pham.html?id=${p.id}" class="btn-card-detail" onclick="event.stopPropagation()">Chi Tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        grid.innerHTML = html;
+    }
+    renderCatalog();
+
+    var currentCatalogModalId = null;
+
+    function openProductQuickView(productId) {
+        var prod = productsData[productId];
+        if (!prod) return;
+        currentCatalogModalId = prod.id;
+
+        document.getElementById('modalImg').src = prod.image;
+        document.getElementById('modalTitle').innerText = prod.name;
+        document.getElementById('modalCategoryBadge').innerText = prod.category;
+        document.getElementById('modalPrice').innerText = prod.price;
+        document.getElementById('modalRatingText').innerText = prod.rating + ' (' + prod.reviews_count + ' đánh giá)';
+        document.getElementById('modalShortDesc').innerText = prod.short_desc;
+        document.getElementById('modalOrigin').innerText = prod.origin;
+        document.getElementById('modalPackaging').innerText = prod.packaging;
+        document.getElementById('modalShelfLife').innerText = prod.shelf_life;
+        document.getElementById('modalIngredients').innerText = prod.ingredients;
+        document.getElementById('modalStock').innerText = 'Còn ' + (prod.stock || 45) + ' phần có sẵn';
+        document.getElementById('modalDetailLink').href = 'chi-tiet-san-pham.html?id=' + prod.id;
+
+        var modal = document.getElementById('productQuickModal');
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductQuickView(e) {
+        if (e && e.target !== document.getElementById('productQuickModal') && !e.target.classList.contains('quick-modal-close')) return;
+        var modal = document.getElementById('productQuickModal');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    function orderFromModal() {
+        if (!currentCatalogModalId) return;
+        buyDirect(currentCatalogModalId);
+    }
+
+    function buyDirect(prodId) {
+        var prod = productsData[prodId];
+        if (!prod) return;
+
+        var cart = [];
+        try { cart = JSON.parse(localStorage.getItem('ohx_cart')) || []; } catch(e){}
+
+        var existing = cart.find(item => item.id === prod.id);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({
+                id: prod.id,
+                name: prod.name,
+                price: prod.price,
+                price_raw: prod.raw_price,
+                image: prod.image,
+                category: prod.category || 'Đặc Sản Huế',
+                quantity: 1
+            });
+        }
+        localStorage.setItem('ohx_cart', JSON.stringify(cart));
+        window.location.href = 'gio-hang.html';
+    }
+
+    function updateCartBadge() {
+        var cart = [];
+        try { cart = JSON.parse(localStorage.getItem('ohx_cart')) || []; } catch(e){}
+        var total = cart.reduce(function(acc, item) { return acc + (parseInt(item.quantity) || 0); }, 0);
+        var badge = document.getElementById('headerCartCount');
+        if (badge) badge.textContent = total;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+    let currentCatFilter = 'all';
+
+    function filterCatalog(categoryKey, btn) {
+        currentCatFilter = categoryKey;
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilters();
+    }
+
+    function searchCatalog() {
+        applyFilters();
+    }
+
+    function sortCatalog() {
+        var sortType = document.getElementById('catalogSortSelect').value;
+        var grid = document.getElementById('catalogGrid');
+        var cards = Array.from(grid.querySelectorAll('.catalog-card'));
+
+        cards.sort(function(a, b) {
+            if (sortType === 'price-asc') {
+                return parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price'));
+            } else if (sortType === 'price-desc') {
+                return parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price'));
+            } else if (sortType === 'rating') {
+                return parseFloat(b.getAttribute('data-rating')) - parseFloat(a.getAttribute('data-rating'));
+            }
+            return parseInt(a.getAttribute('data-id')) - parseInt(b.getAttribute('data-id'));
+        });
+
+        cards.forEach(c => grid.appendChild(c));
+    }
+
+    function applyFilters() {
+        var keyword = document.getElementById('catalogSearchInput').value.toLowerCase().trim();
+        var cards = document.querySelectorAll('.catalog-card');
+        var visibleCount = 0;
+
+        cards.forEach(function(card) {
+            var name = card.getAttribute('data-name').toLowerCase();
+            var cat = card.getAttribute('data-category');
+            var matchCat = (currentCatFilter === 'all') || (cat.indexOf(currentCatFilter) !== -1);
+            var matchSearch = !keyword || (name.indexOf(keyword) !== -1) || (cat.toLowerCase().indexOf(keyword) !== -1);
+
+            if (matchCat && matchSearch) {
+                card.style.display = '';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        document.getElementById('noResults').style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+
+    function resetFilters() {
+        document.getElementById('catalogSearchInput').value = '';
+        document.getElementById('catalogSortSelect').value = 'default';
+        filterCatalog('all', document.querySelector('.filter-pill'));
+    }
+    </script>
+    <!-- Trải Nghiệm Độc Bản: Không Gian Cố Đô -->
+    <script src="hue-ambient.js?v=3.0.0"></script>
+</body>
+</html>

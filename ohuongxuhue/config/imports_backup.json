@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "import_code": "NH-260901-101",
+        "product_id": 1,
+        "product_name": "Bánh Bèo Nậm Lọc Cố Đô",
+        "quantity": 50,
+        "import_price": 85000,
+        "total_cost": 4250000,
+        "supplier": "Lò Bánh Bà Cư - Phú Hội, Huế",
+        "note": "Lô bánh nậm lọc tươi chuyển sáng sớm",
+        "created_at": "2026-09-10 13:58:29"
+    },
+    {
+        "id": 2,
+        "import_code": "NH-260902-102",
+        "product_id": 2,
+        "product_name": "Mè Xửng Hạt Sen Thượng Hạng",
+        "quantity": 40,
+        "import_price": 25000,
+        "total_cost": 1000000,
+        "supplier": "Xưởng Mè Xửng Thiên Hương - Kim Long",
+        "note": "Nhập gói hút chân không 250g mới đóng gói",
+        "created_at": "2026-09-10 13:58:29"
+    },
+    {
+        "id": 3,
+        "import_code": "NH-260903-103",
+        "product_id": 3,
+        "product_name": "Trà Cung Đình Huế Nhất Dạ Đế Vương",
+        "quantity": 30,
+        "import_price": 55000,
+        "total_cost": 1650000,
+        "supplier": "Hợp Tác Xã Thảo Dược Cung Đình Huế",
+        "note": "Nhập hộp trà thảo mộc 16 vị chuẩn sao hạ thổ",
+        "created_at": "2026-09-10 13:58:29"
+    },
+    {
+        "id": 4,
+        "import_code": "NH-260910-752",
+        "product_id": 1,
+        "product_name": "Bánh Bèo Nậm Lọc Cố Đô",
+        "quantity": 25,
+        "import_price": 75000,
+        "total_cost": 1875000,
+        "supplier": "Lò Bánh Bà Cư - TP. Huế",
+        "note": "Nhập bổ sung cho cuối tuần",
+        "created_at": "2026-09-10 13:58:29"
+    }
+]
