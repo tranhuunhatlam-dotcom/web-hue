@@ -117,18 +117,23 @@ $navCategories = $navCategoryModel ? $navCategoryModel->getSidebarCategories() :
             <!-- KHUNG TÌM KIẾM SANG TRỌNG KÈM LIVE SEARCH GỢI Ý TỨC THÌ -->
             <div class="search-bar">
                 <div class="search-category-wrapper">
+                    <?php 
+                        $curCat = isset($_GET['cat']) ? sanitize_text_field($_GET['cat']) : '';
+                        $curQ   = isset($_GET['q']) ? sanitize_text_field($_GET['q']) : '';
+                    ?>
                     <select id="headerCategorySelect" aria-label="Chọn danh mục">
                         <option value=""><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('all_delicacies', 'Tất cả đặc sản') : 'Tất cả đặc sản'; ?></option>
-                        <option value="Bánh">Bánh Huế Tươi</option>
-                        <option value="Mè Xửng">Mè Xửng & Kẹo Quà</option>
-                        <option value="Trà">Trà Cung Đình</option>
-                        <option value="Mắm">Mắm Cố Đô</option>
-                        <option value="Ăn Vặt">Đồ Ăn Vặt</option>
+                        <option value="ban-chay" <?php echo ($curCat === 'ban-chay' || $curCat === 'best_seller') ? 'selected' : ''; ?>>🔥 Bán chạy nhất</option>
+                        <option value="Bánh" <?php echo ($curCat === 'Bánh' || $curCat === 'banh' || $curCat === 'banh-ep-hue') ? 'selected' : ''; ?>>Bánh Huế Tươi</option>
+                        <option value="Mè Xửng" <?php echo ($curCat === 'Mè Xửng' || $curCat === 'me-xung' || $curCat === 'keo-hue') ? 'selected' : ''; ?>>Mè Xửng & Kẹo Quà</option>
+                        <option value="Trà" <?php echo ($curCat === 'Trà' || $curCat === 'tra' || $curCat === 'tra-hue') ? 'selected' : ''; ?>>Trà Cung Đình</option>
+                        <option value="Mắm" <?php echo ($curCat === 'Mắm' || $curCat === 'mam' || $curCat === 'mam-hue') ? 'selected' : ''; ?>>Mắm Cố Đô</option>
+                        <option value="Ăn Vặt" <?php echo ($curCat === 'Ăn Vặt' || $curCat === 'an-vat') ? 'selected' : ''; ?>>Đồ Ăn Vặt</option>
                     </select>
                     <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </div>
                 <div class="search-input-wrapper">
-                    <input type="search" id="headerSearchInput" placeholder="<?php echo class_exists('LanguageEngine') ? LanguageEngine::t('search_placeholder', 'Tìm kiếm đặc sản Huế thơm ngon...') : 'Tìm kiếm đặc sản Huế thơm ngon...'; ?>" autocomplete="off">
+                    <input type="search" id="headerSearchInput" value="<?php echo esc_attr($curQ); ?>" placeholder="<?php echo class_exists('LanguageEngine') ? LanguageEngine::t('search_placeholder', 'Tìm kiếm đặc sản Huế thơm ngon...') : 'Tìm kiếm đặc sản Huế thơm ngon...'; ?>" autocomplete="off">
                 </div>
                 <button type="button" id="headerSearchBtn" title="Tìm kiếm">
                     <svg class="search-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">

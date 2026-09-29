@@ -31,6 +31,7 @@ $products   = $products ?? [];
             <!-- Phân loại danh mục -->
             <div class="filter-categories-pills">
                 <button type="button" class="filter-pill active" onclick="filterCatalog('all', this)"><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('all_products') : 'Tất Cả'; ?> (<?php echo count($products); ?>)</button>
+                <button type="button" class="filter-pill" onclick="filterCatalog('ban-chay', this)" style="border-color: #d4af37; font-weight: 700;">🔥 Bán Chạy Nhất</button>
                 <button type="button" class="filter-pill" onclick="filterCatalog('Bánh', this)">🥟 Bánh Ép Huế</button>
                 <button type="button" class="filter-pill" onclick="filterCatalog('Mắm', this)">🦐 Mắm Cố Đô</button>
                 <button type="button" class="filter-pill" onclick="filterCatalog('Trà', this)">🍵 Trà Cung Đình & Sen</button>
@@ -307,7 +308,10 @@ function applyFilters() {
         var price = parseInt(card.getAttribute('data-price')) || 0;
         
         // Category check
-        var matchCat = (currentCatFilter === 'all') || (cat.indexOf(currentCatFilter) !== -1);
+        // Category check
+        var rating = parseFloat(card.getAttribute('data-rating') || 0);
+        var matchCat = (currentCatFilter === 'all') || 
+                       (currentCatFilter === 'ban-chay' ? (rating >= 4.9) : (cat.toLowerCase().indexOf(currentCatFilter.toLowerCase()) !== -1));
         
         // Search check
         var matchSearch = !keyword || (name.indexOf(keyword) !== -1) || (cat.toLowerCase().indexOf(keyword) !== -1);
@@ -369,4 +373,43 @@ function addCartAjaxCatalog(productId, productName) {
             window.location.href = 'index.php?controller=cart&action=add&id=' + productId;
         });
 }
+
+// Tự động nhận diện từ khóa tìm kiếm (q) và danh mục (cat) từ URL
+window.addEventListener('DOMContentLoaded', function() {
+    var params = new URLSearchParams(window.location.search);
+    var q = params.get('q');
+    var cat = params.get('cat');
+
+    if (q) {
+        var searchInput = document.getElementById('catalogSearchInput');
+        if (searchInput) searchInput.value = q;
+    }
+
+    if (cat) {
+        var map = {
+            'ban-chay': 'ban-chay', 'best_seller': 'ban-chay',
+            'Bánh': 'Bánh', 'banh': 'Bánh', 'banh-ep': 'Bánh', 'banh-ep-hue': 'Bánh',
+            'Mắm': 'Mắm', 'mam': 'Mắm', 'mam-hue': 'Mắm',
+            'Trà': 'Trà', 'tra': 'Trà', 'tra-hue': 'Trà',
+            'Kẹo': 'Kẹo', 'Mè Xửng': 'Kẹo', 'me-xung': 'Kẹo', 'keo': 'Kẹo', 'keo-hue': 'Kẹo',
+            'Tré': 'Tré', 'tre': 'Tré', 'tre-hue': 'Tré',
+            'Sen': 'Sen', 'sen': 'Sen', 'hat-sen-hue': 'Sen',
+            'Nem': 'Nem', 'nem': 'Nem', 'nem-chua-hue': 'Nem',
+            'Ăn Vặt': 'Ăn Vặt', 'an-vat': 'Ăn Vặt'
+        };
+        var targetCat = map[cat] || cat;
+        var pills = Array.from(document.querySelectorAll('.filter-pill'));
+        var matchedPill = pills.find(function(p) {
+            var oc = p.getAttribute('onclick') || '';
+            return oc.indexOf("'" + targetCat + "'") !== -1 || p.textContent.indexOf(targetCat) !== -1;
+        });
+        if (matchedPill) {
+            filterCatalog(targetCat, matchedPill);
+        } else {
+            currentCatFilter = targetCat;
+        }
+    }
+    applyFilters();
+});
+
 </script>

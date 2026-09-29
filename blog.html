@@ -30,14 +30,18 @@
                 </div>
             </a>
 
-            <div class="search-bar">
-                <select id="blogSearchCategory">
-                    <option value="all">Tất cả chuyên mục</option>
-                    <option value="am-thuc">Góc Ẩm Thực</option>
-                    <option value="du-lich">Góc Du Lịch</option>
+                        <div class="search-bar">
+                <select id="headerCategorySelect">
+                    <option value="">Tất cả đặc sản</option>
+                    <option value="ban-chay">🔥 Bán chạy nhất</option>
+                    <option value="Bánh">Bánh Huế</option>
+                    <option value="Mè Xửng">Mè Xửng &amp; Kẹo</option>
+                    <option value="Trà">Trà Cung Đình</option>
+                    <option value="Mắm">Mắm Cố Đô</option>
+                    <option value="Ăn Vặt">Đồ Ăn Vặt</option>
                 </select>
-                <input type="search" id="blogSearchInput" placeholder="Tìm kiếm bài viết blog, di sản, ẩm thực...">
-                <button type="button" onclick="filterBlogBySearch()">&#128269;</button>
+                <input type="search" id="headerSearchInput" placeholder="Tìm kiếm đặc sản Huế thơm ngon...">
+                <button type="button" id="headerSearchBtn">🔍 Tìm kiếm</button>
             </div>
 
             <div class="header-actions">

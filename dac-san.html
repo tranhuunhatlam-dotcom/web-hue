@@ -30,12 +30,18 @@
                 </div>
             </a>
 
-            <div class="search-bar">
-                <select>
-                    <option>Tất cả</option>
+                        <div class="search-bar">
+                <select id="headerCategorySelect">
+                    <option value="">Tất cả đặc sản</option>
+                    <option value="ban-chay">🔥 Bán chạy nhất</option>
+                    <option value="Bánh">Bánh Huế</option>
+                    <option value="Mè Xửng">Mè Xửng &amp; Kẹo</option>
+                    <option value="Trà">Trà Cung Đình</option>
+                    <option value="Mắm">Mắm Cố Đô</option>
+                    <option value="Ăn Vặt">Đồ Ăn Vặt</option>
                 </select>
-                <input type="search" placeholder="Tìm kiếm sản phẩm đặc sản...">
-                <button type="button">&#128269;</button>
+                <input type="search" id="headerSearchInput" placeholder="Tìm kiếm đặc sản Huế thơm ngon...">
+                <button type="button" id="headerSearchBtn">🔍 Tìm kiếm</button>
             </div>
 
             <div class="header-actions">
@@ -216,6 +222,7 @@
             <div class="catalog-toolbar">
                 <div class="filter-categories-pills">
                     <button type="button" class="filter-pill active" onclick="filterCatalog('all', this)">Tất Cả (24)</button>
+                    <button type="button" class="filter-pill" onclick="filterCatalog('ban-chay', this)" style="border-color: #d4af37; font-weight: 700;">🔥 Bán Chạy Nhất</button>
                     <button type="button" class="filter-pill" onclick="filterCatalog('Bánh', this)">🥟 Bánh Ép Huế</button>
                     <button type="button" class="filter-pill" onclick="filterCatalog('Mắm', this)">🦐 Mắm Cố Đô</button>
                     <button type="button" class="filter-pill" onclick="filterCatalog('Trà', this)">🍵 Trà Cung Đình &amp; Sen</button>
@@ -841,6 +848,12 @@
 
     function checkUrlFilter() {
         var params = new URLSearchParams(window.location.search);
+        var q = params.get('q');
+        if (q) {
+            var searchInput = document.getElementById('catalogSearchInput');
+            if (searchInput) searchInput.value = q;
+        }
+        var params = new URLSearchParams(window.location.search);
         var cat = params.get('cat');
         if (cat) {
             var map = {
@@ -912,7 +925,8 @@
         cards.forEach(function(card) {
             var name = card.getAttribute('data-name').toLowerCase();
             var cat = card.getAttribute('data-category');
-            var matchCat = (currentCatFilter === 'all') || (cat.indexOf(currentCatFilter) !== -1);
+            var rating = parseFloat(card.getAttribute('data-rating') || 0);
+            var matchCat = (currentCatFilter === 'all') || (currentCatFilter === 'ban-chay' ? (rating >= 4.9) : (cat.toLowerCase().indexOf(currentCatFilter.toLowerCase()) !== -1));
             var matchSearch = !keyword || (name.indexOf(keyword) !== -1) || (cat.toLowerCase().indexOf(keyword) !== -1);
 
             if (matchCat && matchSearch) {

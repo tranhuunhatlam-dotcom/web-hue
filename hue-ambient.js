@@ -81,3 +81,39 @@
         startDrumMotor();
     }
 })();
+
+
+    // Hỗ trợ tìm kiếm từ Header trên các trang HTML tĩnh
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchBtn = document.getElementById('headerSearchBtn');
+        const searchInput = document.getElementById('headerSearchInput');
+        const categorySelect = document.getElementById('headerCategorySelect');
+
+        function doSearch() {
+            const q = searchInput ? searchInput.value.trim() : '';
+            const cat = categorySelect ? categorySelect.value.trim() : '';
+            let url = 'dac-san.html';
+            const params = [];
+            if (q) params.push('q=' + encodeURIComponent(q));
+            if (cat) params.push('cat=' + encodeURIComponent(cat));
+            if (params.length > 0) url += '?' + params.join('&');
+            window.location.href = url;
+        }
+
+        if (searchBtn) {
+            searchBtn.addEventListener('click', doSearch);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    doSearch();
+                }
+            });
+        }
+        if (categorySelect) {
+            categorySelect.addEventListener('change', function() {
+                if (this.value) doSearch();
+            });
+        }
+    });
