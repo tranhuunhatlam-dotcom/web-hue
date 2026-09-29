@@ -26,6 +26,9 @@ $isAdmin     = $isLoggedIn && isset($currentUser['role']) && $currentUser['role'
 $customCartCount = class_exists('CartController') ? CartController::getCartTotalCount() : 0;
 $wcCartCount     = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
 $cartCount       = (!empty($_SESSION['cart'])) ? $customCartCount : $wcCartCount;
+$navCategoryModel = class_exists('CategoryModel') ? new CategoryModel() : null;
+$navCategories = $navCategoryModel ? $navCategoryModel->getSidebarCategories() : [];
+
 ?>
 <!DOCTYPE html>
 <html <?php if (function_exists('language_attributes')) language_attributes(); else echo 'lang="vi"'; ?>>
@@ -200,7 +203,58 @@ $cartCount       = (!empty($_SESSION['cart'])) ? $customCartCount : $wcCartCount
             <ul class="nav-container">
                 <li><a href="<?php echo esc_url($site_url); ?>" class="<?php echo ($currentNav === 'home') ? 'active' : ''; ?>"><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('nav_home', 'Trang Chủ') : 'Trang Chủ'; ?></a></li>
                 <li><a href="<?php echo esc_url($about_url); ?>" class="<?php echo ($currentNav === 'about') ? 'active' : ''; ?>"><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('nav_about', 'Giới Thiệu') : 'Giới Thiệu'; ?></a></li>
-                <li><a href="<?php echo esc_url($dacsan_url); ?>" class="<?php echo ($currentNav === 'dac-san') ? 'active' : ''; ?>"><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('nav_dacsan', 'Đặc Sản Huế') : 'Đặc Sản Huế'; ?></a></li>
+                                <li class="has-dropdown nav-item-dacsan">
+                    <a href="<?php echo esc_url($dacsan_url); ?>" class="<?php echo ($currentNav === 'dac-san') ? 'active' : ''; ?>">
+                        <?php echo class_exists('LanguageEngine') ? LanguageEngine::t('nav_dacsan', 'Đặc Sản Huế') : 'Đặc Sản Huế'; ?>
+                        <span class="nav-dropdown-caret">▾</span>
+                    </a>
+                    <div class="nav-dropdown-mega">
+                        <div class="dropdown-header-bar">
+                            <div class="dropdown-header-title">
+                                <span>DANH MỤC ĐẶC SẢN</span>
+                            </div>
+                            <span class="dropdown-header-badge">CỐ ĐÔ</span>
+                        </div>
+                        <ul class="dropdown-category-list">
+                            <?php foreach ($navCategories as $cat): 
+                                $catName = $cat['name'];
+                                $catBadge = $cat['badge'] ?? '';
+                                $catBadgeCls = $cat['badge_cls'] ?? '';
+                                $hasChildren = !empty($cat['children']);
+                            ?>
+                                <li class="dropdown-category-item <?php echo $hasChildren ? 'has-flyout' : ''; ?>">
+                                    <a href="<?php echo esc_url($cat['link']); ?>" class="dropdown-category-link">
+                                        <span class="dropdown-cat-left">
+                                            <span class="dropdown-cat-name"><?php echo htmlspecialchars($catName); ?></span>
+                                        </span>
+                                        <span class="dropdown-cat-right">
+                                            <?php if (!empty($catBadge)): ?>
+                                                <span class="sidebar-item-badge <?php echo htmlspecialchars($catBadgeCls); ?>"><?php echo htmlspecialchars($catBadge); ?></span>
+                                            <?php endif; ?>
+                                            <span class="dropdown-cat-arrow">›</span>
+                                        </span>
+                                    </a>
+                                    <?php if ($hasChildren): ?>
+                                        <ul class="flyout-submenu">
+                                            <?php foreach ($cat['children'] as $child): ?>
+                                                <li>
+                                                    <a href="<?php echo esc_url($child['link']); ?>">
+                                                        <?php echo htmlspecialchars($child['name']); ?>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                            <li class="flyout-view-all">
+                                                <a href="<?php echo esc_url($cat['link']); ?>">
+                                                    Xem tất cả <?php echo htmlspecialchars($catName); ?> &rarr;
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="<?php echo esc_url($blog_url); ?>" class="<?php echo ($currentNav === 'blog') ? 'active' : ''; ?>"><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('nav_blog', 'Blog') : 'Blog'; ?></a></li>
                 <li><a href="<?php echo esc_url($contact_url); ?>" class="<?php echo ($currentNav === 'contact') ? 'active' : ''; ?>"><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('nav_contact', 'Liên Hệ') : 'Liên Hệ'; ?></a></li>
                 <li><a href="<?php echo esc_url($store_url); ?>" class="<?php echo ($currentNav === 'store') ? 'active' : ''; ?>"><?php echo class_exists('LanguageEngine') ? LanguageEngine::t('nav_store', 'Cửa Hàng') : 'Cửa Hàng'; ?></a></li>
